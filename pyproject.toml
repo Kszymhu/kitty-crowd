@@ -3,7 +3,7 @@ requires=["hatchling"]
 build-backend="hatchling.build"
 
 [project]
-name = "pyrbon"
+name = "kitty-crowd"
 version = "0.1.0"
 description = "Flask-based REST API service for returning cat emojis."
 authors = [{ name="Kszymhu", email="emailsmieciowy785@gmail.com" }]
@@ -12,3 +12,6 @@ requires-python = ">=3.11"
 dependencies = [
   "flask"
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["kitty_crowd"]
