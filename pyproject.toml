@@ -1,0 +1,14 @@
+[build-system]
+requires=["hatchling"]
+build-backend="hatchling.build"
+
+[project]
+name = "pyrbon"
+version = "0.1.0"
+description = "Flask-based REST API service for returning cat emojis."
+authors = [{ name="Kszymhu", email="emailsmieciowy785@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "flask"
+]
