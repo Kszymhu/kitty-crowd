@@ -41,3 +41,10 @@ jobs:
           subject-name: index.docker.io/kszymhu/kitty-crowd
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: True
+
+      - name: Set Up GCP credentials
+        uses: google-github-actions/setup-gcloud@v3
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          
