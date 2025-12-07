@@ -47,3 +47,11 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Install gcloud CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-cloud-cli google-cloud-sdk-gke-gcloud-auth-plugin
+          
+      - name: Verify gcloud
+        run: gcloud info
