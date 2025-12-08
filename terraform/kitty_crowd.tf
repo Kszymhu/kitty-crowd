@@ -1,7 +1,7 @@
 data "google_client_config" "kitty_crowd_config" {}
 
 provider "kubernetes" {
-  host "https://${google_container_cluster.kitty_crowd_cluster.deault.endpoint}"
+  host = "https://${google_container_cluster.kitty_crowd_cluster.deault.endpoint}"
   token = data.google_client_config.kitty_crowd_config.access_token
   cluster_ca_certificate = base64decode(google_container_cluster.kitty_crowd_cluster.master_auth[0].cluster_ca_certificate)
 
