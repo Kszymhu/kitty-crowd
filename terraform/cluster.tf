@@ -17,7 +17,7 @@ resource "google_compute_subnetwork" "kitty_crowd_subnetwork" {
   network = google_compute_network.kitty_crowd_network.id
   secondary_ip_range {
     range_name = "services-range"
-    ip_cidr_name = "192.168.0.0/24"
+    ip_cidr_range = "192.168.0.0/24"
   }
 }
 
