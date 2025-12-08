@@ -1,7 +1,7 @@
 data "google_client_config" "kitty_crowd_config" {}
 
 provider "kubernetes" {
-  host = "https://${google_container_cluster.kitty_crowd_cluster.deault.endpoint}"
+  host = "https://${google_container_cluster.kitty_crowd_cluster.endpoint}"
   token = data.google_client_config.kitty_crowd_config.access_token
   cluster_ca_certificate = base64decode(google_container_cluster.kitty_crowd_cluster.master_auth[0].cluster_ca_certificate)
 
@@ -100,7 +100,7 @@ resource "kubernetes_service_v1" "kitty_crowd_loadbalancer" {
 
     port = {
       port = 80
-      target_port = kubernetes_deployment_v1.kitty_crowd_deployment.default.spec[0].template[0].spec[0].container[0].port[0].name
+      target_port = kubernetes_deployment_v1.kitty_crowd_deployment.spec[0].template[0].spec[0].container[0].port[0].name
     }
 
     type = "LoadBalancer"
