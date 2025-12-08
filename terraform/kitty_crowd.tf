@@ -32,7 +32,7 @@ resource "kubernetes_deployment_v1" "kitty_crowd_deployment" {
 
       spec {
         container {
-          image = kszymhu/kitty-crowd:main
+          image = "kszymhu/kitty-crowd:main"
           name = "kitty-crowd"
 
           port {
