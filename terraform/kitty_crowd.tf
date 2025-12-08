@@ -98,7 +98,7 @@ resource "kubernetes_service_v1" "kitty_crowd_loadbalancer" {
 
     ip_family_policy = "RequireDualStack"
 
-    port = {
+    port {
       port = 80
       target_port = kubernetes_deployment_v1.kitty_crowd_deployment.spec[0].template[0].spec[0].container[0].port[0].name
     }
@@ -106,7 +106,7 @@ resource "kubernetes_service_v1" "kitty_crowd_loadbalancer" {
     type = "LoadBalancer"
   }
 
-  depends-on = [time_sleep.wait_service_cleanup]
+  depends_on = [time_sleep.wait_service_cleanup]
 }
 
 resource "time_sleep" "wait_service_cleanup" {
