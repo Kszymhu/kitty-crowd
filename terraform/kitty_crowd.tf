@@ -70,7 +70,7 @@ resource "kubernetes_deployment_v1" "kitty_crowd_deployment" {
         security_context {
           run_as_non_root = true
 
-          syscomp_profile {
+          seccomp_profile {
             type = "RuntimeDefault"
           }
         }
