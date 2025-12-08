@@ -19,6 +19,11 @@ resource "google_compute_subnetwork" "kitty_crowd_subnetwork" {
     range_name = "services-range"
     ip_cidr_range = "192.168.0.0/24"
   }
+
+  secondary_ip_range {
+    range_name = "pod-ranges"
+    ip_cidr_range = "192.168.1.0/24"
+  }
 }
 
 resource "google_container_cluster" "kitty_crowd_cluster" {
